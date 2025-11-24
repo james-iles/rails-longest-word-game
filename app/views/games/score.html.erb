@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <h1>Your score...</h1>
+  <p>From the letters: <strong><%= @letter_grid.map(&:upcase).join(", ") %></strong></p>
+  <p>You played: <strong><%= @player_word %></strong></p>
+  <br>
+  <p class="fw-3"> <%= @player_score %> </p>
+  <div>
+    Your score is: <%= @score_total %>
+  </div>
+
+  <%= link_to "Play again!", new_path, class: "btn btn-outline-primary mt-3" %>
+</div>
