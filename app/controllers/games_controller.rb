@@ -7,11 +7,11 @@ class GamesController < ApplicationController
   end
 
   def score
-    @score_total = 0
-    @player_word = params[:word]
-    @player_word_letters = @player_word.downcase.chars
-    @letter_grid = params[:letters].split("")
-    temp_grid = @letter_grid.dup
+    @score_total = 0 # To allow for displaying a score total
+    @player_word = params[:word] # Capturing the word from the form input
+    @player_word_letters = @player_word.downcase.chars # Create an array of lowercase letters from the players word
+    @letter_grid = params[:letters].split("") # Create an array (from passed string) of the letters the player had to pick from
+    temp_grid = @letter_grid.dup # Create a temporary duplicate array to remove from to avoid re-using letters
 
     valid_word = @player_word_letters.all? do |letter|
       if temp_grid.include?(letter)
